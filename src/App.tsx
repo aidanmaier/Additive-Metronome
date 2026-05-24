@@ -10,7 +10,7 @@ function App() {
       <ClockProvider>
         <div className="app-container">
           <DigitalDisplay />
-          <Sequencer />
+          <Sequencer sequenceLength={15}/>
         </div>
       </ClockProvider>
     </>

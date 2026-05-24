@@ -1,10 +1,14 @@
-
 import { useMemo } from 'react';
 import { useClock } from '../hooks/useClock';
 
-export default function Sequencer() {
+interface SequencerProps {
+  sequenceLength: number
+}
+
+export default function Sequencer(props: SequencerProps) {
+
   const time = useClock();
-  const steps = useMemo(() => [...Array(8).keys()], []);
+  const steps = useMemo(() => [...Array(props.sequenceLength).keys()], []);
   const activeStep = time.getSeconds() % steps.length;
 
   return (
