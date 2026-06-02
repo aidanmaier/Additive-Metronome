@@ -3,10 +3,10 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import { QuestionMark, Settings } from '@mui/icons-material';
+// import IconButton from '@mui/material/IconButton';
+// import MenuItem from '@mui/material/MenuItem';
+// import Menu from '@mui/material/Menu';
+// import { QuestionMark, Settings } from '@mui/icons-material';
 
 export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -24,7 +24,7 @@ export default function MenuAppBar() {
           <Typography  component="div" sx={{ flexGrow: 1, fontSize: 22}}>
             Additive Metronome
           </Typography>
-          <div>
+          {/* <div>
             <IconButton
               size="small"
               aria-label="account of current user"
@@ -63,7 +63,7 @@ export default function MenuAppBar() {
               <MenuItem onClick={handleClose}>Settings A</MenuItem>
               <MenuItem onClick={handleClose}>Settings B</MenuItem>
             </Menu>
-          </div>
+          </div> */}
         </Toolbar>
       </AppBar>
     </Box>

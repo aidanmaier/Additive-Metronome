@@ -1,6 +1,6 @@
 import React from 'react';
 import { OutlinedInput, FormControl } from '@mui/material';
-import { Add, Remove } from '@mui/icons-material';
+// import { Add, Remove } from '@mui/icons-material';
 
 interface NumberFieldProps {
     value: number;

@@ -26,6 +26,7 @@ const AppContent = () => {
     <div
       className="app-container"
       style={{
+        flexGrow: 1,
         backgroundColor: flash ? indicatorColors[0] : "transparent",
         transition: "background-color 120ms ease",
       }}
@@ -35,9 +36,7 @@ const AppContent = () => {
         container
         rowSpacing={2}
         columnSpacing={4}
-        sx={{
-          m: 2,
-        }}
+        sx={{ m: 2 }}
       >
         <Grid>
           <OutputControl />
