@@ -31,11 +31,14 @@ export default function OutputControl() {
 
   return (
     <Box
+      className="component-container"
       sx={{
         flexGrow: 1,
         border: "1px solid lightgrey",
         borderRadius: 2,
-        maxWidth: 450,
+        minWidth: 322,
+        maxWidth: 386,
+        height: "100%",
       }}
     >
       <Grid
@@ -48,8 +51,7 @@ export default function OutputControl() {
           direction={"row"}
           spacing={4}
           sx={{ 
-            p: 0, 
-            width: 315, 
+            flex: 1,
             height: 20, 
             alignItems: "center", 
             justifyContent: "space-between",
@@ -63,7 +65,8 @@ export default function OutputControl() {
             value={volume}
             sx = {{
               opacity: mute? 0.5 : 1, // appear disabled when mute
-              width: 200,
+              minWidth: 160,
+              maxWidth: 260,
             }}
             onChange={(_e, v: number | number[]) => {
               const newValue = Array.isArray(v) ? v[0] : v;

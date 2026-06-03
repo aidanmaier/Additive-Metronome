@@ -41,7 +41,7 @@ const AppContent = () => {
       <Grid
         container
         rowSpacing={2}
-        columnSpacing={4}
+        columnSpacing={2}
         sx={{ m: 2 }}
       >
         <Grid>

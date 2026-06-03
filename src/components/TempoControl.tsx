@@ -4,7 +4,6 @@ import NumberField from "./NumberField";
 import NumberDisplay from "./NumberDisplay";
 import TempoSlider from './TempoSlider';
 import { useClock } from '../hooks/useClock';
-
 import ChangeHistoryRoundedIcon from '@mui/icons-material/ChangeHistoryRounded';
 import CropSquareRoundedIcon from '@mui/icons-material/CropSquareRounded';
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
@@ -50,32 +49,38 @@ export default function TempoControl() {
 
   return (
     <Box 
+      className="tempo-container"
       sx={{ 
         flexGrow: 1,
         border: "1px solid lightgrey", 
         borderRadius: 2,
-        m: 2
+        m: 2,
+        minWidth: 322,
+        maxWidth: 618,
       }} 
     >
       <Grid 
         container 
         rowSpacing={1.5} 
-        columnSpacing={4}
-        sx={{ m: 2, alignItems: "center" }} 
+        columnSpacing={2}
+        sx={{ 
+          m: 2, 
+          alignItems: "top",
+        }} 
       >
-        <Stack 
-          direction={"row"} 
-          spacing={4}
-          sx={{ 
-            p: 0, 
-            width: 315, 
-            height: 20, 
-            alignItems: "center", 
-            justifyContent: "space-between",
-          }} 
-        >
+        <Grid >
+          <Stack 
+            direction={"row"}
+            spacing={1.5}
+            sx={{ 
+              width: 280,
+              alignItems: "center",
+              justifyContent: "space-between"
+
+            }} 
+          >
             <Typography>
-                Tempo (bpm)
+              Tempo (bpm)
             </Typography>
             <TempoSlider 
               min={60}
@@ -83,25 +88,35 @@ export default function TempoControl() {
               value={bpm}
               onChange={(v: number) => setBpm(v)}
             />
-        </Stack>
-        <Stack direction={"row"} spacing={4} sx={{ alignItems: "center" }} >
-          <Grid 
-            container
-            rowSpacing={1.5} 
-            columnSpacing={4}
-            // sx={{ alignItems: "center" }} 
+          </Stack>
+        </Grid>
+        <Grid >
+          <Stack 
+            direction={"column"}
+            spacing={1.5}
+            sx={{ 
+              alignItems: "center",
+
+            }} 
           >
-            <NumberField
-              value={bpm}
-              onChange={(v: number) => setBpm(v)}
-              min={20}
-              max={240}
-            />
+            
+            <Stack direction={"row"} spacing={1.5}>
+              <Typography className="music-font" >
+                {"\u266A"}
+              </Typography>
+              <NumberField
+                value={bpm}
+                onChange={(v: number) => setBpm(v)}
+                min={20}
+                max={240}
+              />
+            </Stack>
+            
             <Button 
               variant="outlined" 
               aria-label="Tap tempo" 
               sx={{ 
-                width: 90, 
+                width: 100, 
                 height: 50, 
                 boxShadow: 1,
                 fontSize: "large",
@@ -110,22 +125,36 @@ export default function TempoControl() {
             >
               TAP
             </Button>
-          </Grid>
-          <Grid 
-            container
-            rowSpacing={1.5} 
-            columnSpacing={4}
+          </Stack>
+        </Grid>
+        <Grid >
+          <Stack 
+            direction={"column"}
+            spacing={1.5} 
+            sx={{
+              flex: 1,
+            }}
           >
             <Stack direction={"row"} spacing={2} >
               <Stack direction={"row"} >
-                <CropSquareRoundedIcon htmlColor="green" />
+                <Stack direction={"column"} >
+                  <CropSquareRoundedIcon htmlColor="green" />
+                  <Typography className="music-font" >
+                    {"\u2669"}
+                  </Typography>
+                </Stack>
                 <NumberDisplay 
                   id={"shortBeatDisplay"} 
                   value={Math.round(bpm / 2)}
                 />  
               </Stack>
               <Stack direction={"row"} >
-                <ChangeHistoryRoundedIcon htmlColor="orangered" />
+                <Stack direction={"column"} >
+                  <ChangeHistoryRoundedIcon htmlColor="orangered" />
+                  <Typography className="music-font" >
+                    {"\u2669"}.
+                  </Typography>
+                </Stack>
                 <NumberDisplay 
                   id={"longBeatDisplay"}
                   value={Math.round(bpm / 3)}
@@ -137,7 +166,11 @@ export default function TempoControl() {
               variant="contained" 
               aria-label="Start metronome" 
               color={playState? "secondary" : "primary"}
-              sx={{ width: 170, height: 50 }}
+              sx={{ 
+                // width: 160, 
+                width: "100%",
+                height: 50 
+              }}
               onClick={() => setPlayState(!playState)} // binary state
             >
               {playState ? 
@@ -145,8 +178,8 @@ export default function TempoControl() {
                 <PlayArrowRoundedIcon fontSize="large" />
               }
             </Button>
-          </Grid>
-        </Stack>
+          </Stack>
+        </Grid>        
       </Grid>
     </Box>
   );

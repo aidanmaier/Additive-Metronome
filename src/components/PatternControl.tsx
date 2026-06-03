@@ -53,11 +53,14 @@ export default function PatternControl() {
 
   return(
     <Box 
+      className="component-container"
       sx={{ 
         flexGrow: 1,
         border: "1px solid lightgrey", 
         borderRadius: 2,
-        maxWidth: 450,
+        minWidth: 322,
+        maxWidth: 386,
+        height: "100%",
       }} 
     >
       <Grid 
@@ -70,8 +73,7 @@ export default function PatternControl() {
           direction={"row"} 
           spacing={4}
           sx={{ 
-            p: 0, 
-            width: 315, 
+            flex: 1,
             height: 20, 
             alignItems: "center",
             justifyContent: "space-between", 

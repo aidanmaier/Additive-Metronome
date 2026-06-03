@@ -29,7 +29,7 @@ export default function NumberField({ value, onChange, min, max }: NumberFieldPr
                 inputProps={{ min, max }}
                 sx={{
                     alignContent: 'center',
-                    width: 90,
+                    width: 80,
                     height: 50,
                 }}
             />

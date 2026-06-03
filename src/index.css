@@ -103,6 +103,12 @@ code,
   color: var(--text-h);
 }
 
+.music-font {
+  font-family: 'Noto Music', system-ui, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
 code {
   font-size: 15px;
   line-height: 135%;

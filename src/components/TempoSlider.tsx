@@ -18,7 +18,7 @@ export default function TempoSlider(props: sliderProps) {
         }
     }, [props.value]);
 
-    const handleChange = (_: any, newValue: number | number[]) => {
+    const handleChange = (_e: any, newValue: number | number[]) => {
         const val = Array.isArray(newValue) ? newValue[0] : newValue;
         setValue(val);
         if (props.onChange) props.onChange(val);
@@ -32,7 +32,7 @@ export default function TempoSlider(props: sliderProps) {
             max={props.max}
             value={value}
             onChange={handleChange}
-            sx={{ width: 164 }}
+            sx={{ width: 162 }}
         />
     );
 }
