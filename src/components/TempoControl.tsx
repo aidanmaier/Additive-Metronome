@@ -86,7 +86,7 @@ export default function TempoControl() {
     const displayShort = (
     <Stack direction={"row"} >
       <Stack direction={"column"} >
-        <CropSquareRoundedIcon htmlColor="green" />
+        <CropSquareRoundedIcon htmlColor="green" fontSize="small" />
         <Typography className="music-font" >
           {"\u2669"}
         </Typography>
@@ -101,7 +101,7 @@ export default function TempoControl() {
   const displayLong = (
     <Stack direction={"row"} >
       <Stack direction={"column"} >
-        <ChangeHistoryRoundedIcon htmlColor="orangered" />
+        <ChangeHistoryRoundedIcon htmlColor="orangered" fontSize="small" />
         <Typography className="music-font" >
           {"\u2669"}.
         </Typography>
@@ -116,29 +116,26 @@ export default function TempoControl() {
   return (
     <Box 
       className="tempoControl-container"
-      sx={{ 
+      sx={{
         border: "1px solid lightgrey", 
         borderRadius: 2,
-        m: 2,
         minWidth: 322,
-        maxWidth: 790,
       }} 
     >
       <Grid 
         container 
-        rowSpacing={1.5} 
-        columnSpacing={2}
+        rowSpacing={0.5} 
+        columnSpacing={4}
         sx={{ 
           m: 2, 
           alignItems: "center",
           justifyContent: "center",
         }} 
       >
-        <Grid id="tempoSlider-container" >
-          <Grid 
-            container
-            rowSpacing={4}
-            columnSpacing={2}
+        <Grid >
+          <Stack id="tempoSlider-container"
+            direction={"row"}
+            spacing={3}
             sx={{ 
               alignItems: "center",
               justifyContent: "space-between"
@@ -151,44 +148,46 @@ export default function TempoControl() {
               value={bpm}
               onChange={(v: number) => setBpm(v)}
             />
-          </Grid>
-        </Grid>
-        <Grid id="tempoTap-container" >
-          <Stack 
-            direction={"column"}
-            spacing={1.5}
-            sx={{ 
-              alignItems: "center",
-
-            }} 
-          >
-            <Stack 
-              direction={"row"} 
-              spacing={1}
-            >
-              <Typography className="music-font" >
-                {"\u266A"}
-              </Typography>
-              <NumberField
-                value={bpm}
-                onChange={(v: number) => setBpm(v)}
-                min={20}
-                max={240}
-              />
-            </Stack>
-            {tapButton}
           </Stack>
         </Grid>
-        <Grid id="tempoPlay-container" >
+        <Grid >
           <Stack 
-            direction={"column"}
-            spacing={1.5} 
+            direction={"row"} 
+            spacing={3}
+            sx={{
+              alignItems: "center"
+            }}
           >
-            <Stack direction={"row"} spacing={2} >
-              {displayShort}
-              {displayLong}
+            <Stack id="tempoTap-container"
+              direction={"column"}
+              spacing={1.5}
+            >
+              <Stack 
+                direction={"row"} 
+                spacing={1}
+              >
+                <Typography className="music-font" sx={{alignContent:"end"}}>
+                  {"\u266A"}
+                </Typography>
+                <NumberField
+                  value={bpm}
+                  onChange={(v: number) => setBpm(v)}
+                  min={20}
+                  max={240}
+                />
+              </Stack>
+              {tapButton}
             </Stack>
-            {playButton}
+            <Stack id="tempoPlay-container"
+              direction={"column"}
+              spacing={1.5}
+            >
+              <Stack direction={"row"} spacing={2} >
+                {displayShort}
+                {displayLong}
+              </Stack>
+              {playButton}
+            </Stack>
           </Stack>
         </Grid>        
       </Grid>

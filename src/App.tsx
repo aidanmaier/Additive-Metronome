@@ -10,6 +10,7 @@ import OutputControl from "./components/OutputControl";
 import PatternControl from "./components/PatternControl";
 import TempoControl from "./components/TempoControl";
 
+
 const indicatorColor = ["transparent", "cyan", "magenta"]; // colors corresponding to different click sounds
 
 const AppContent = () => {
@@ -42,7 +43,10 @@ const AppContent = () => {
         container
         rowSpacing={2}
         columnSpacing={2}
-        sx={{ m: 2 }}
+        sx={{ 
+          m: 2, 
+          justifyContent: "center"
+        }}
       >
         <Grid>
           <OutputControl />
@@ -50,8 +54,10 @@ const AppContent = () => {
         <Grid>
           <PatternControl />
         </Grid>
+        <Grid >
+          <TempoControl />
+        </Grid>
       </Grid>
-      <TempoControl />
     </div>
   );
 };
